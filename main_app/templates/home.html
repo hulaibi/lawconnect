@@ -6,11 +6,34 @@
     <title>home</title>
 </head>
 <body>
-    <h2>Welcome, {{ request.user.username }} </h2>
-    {% if request.user.is_staff %}
-    <p>You are logged in as a <strong>Lawyer (Admin)</strong></p>
+    <h1>Welcome to LawConnect</h1>
+     {% if request.user.is_authenticated %}
+        <p>Hello, {{ request.user.username }}!</p>
+        {% if request.user.is_staff%}
+            <p>You are logged in as an admin.</p>
+        {% else %}
+            <p>You are logged in as a user.</p>
+        {% endif %}
+        <a href="{% url 'my_cases' %}">My Cases</a>
+        <a href="{% url 'submit_case' %}">Submit a New Case</a>
+        <a href="{% url 'logout' %}">Logout</a>
     {% else %}
-    <p>You are logged in as a <strong>Client</strong></p>
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
     {% endif %}
-    <a href="{% url 'logout' %}">Logout</a>
+    <h2>About LawConnect</h2>
+    <p>LawConnect is a platform that connects users with legal professionals to help them with their legal cases. You can submit your cases, view your submitted cases, and manage your account.</p>
+    <h2>Features</h2>
+    <ul>
+        <li>Submit new legal cases</li>
+        <li>View your submitted cases</li>
+        <li>Connect with legal professionals</li>
+        <li>Manage your account</li>
+    </ul>
+    <h2>Contact Us</h2>
+    <p>If you have any questions or need assistance, please contact us at support@law   connect.com.</p>
+    <footer>
+        <p>&copy; 2025 LawConnect.GA All rights reserved.</p>
+    </footer>           
 </body>

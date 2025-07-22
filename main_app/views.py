@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm , CaseForm
+from .models import Case   
 
 # Create your views here.
 
@@ -32,8 +33,24 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
-@login_required
+
 def home_view(request):
     return render(request, 'home.html')
 
+@login_required
+def submit_case_view(request):
+    if request.method == 'POST':
+        form = CaseForm(request.POST)
+        if form.is_valid():
+            case = form.save(commit=False)
+            case.user = request.user
+            case.save()
+            return redirect('my_cases')
+    else:
+        form = CaseForm()
+    return render(request, 'submit_case.html', {'form': form})
 
+@login_required
+def my_cases_view(request):
+    cases = Case.objects.filter(user=request.user)
+    return render(request, 'my_cases.html', {'cases': cases})
