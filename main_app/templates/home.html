@@ -1,26 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Home</title>
 </head>
 <body>
-    <h1>Welcome to LawConnect</h1>
+<div class="main-container">
+    <h1 class="container">Welcome to LawConnect</h1>
      {% if request.user.is_authenticated %}
-        <p>Hello, {{ request.user.username }}!</p>
+        <h3>Hello, {{ request.user.username }}!</h3>
         {% if request.user.is_staff%}
-            <p>You are logged in as an admin.</p>
+        <div class="admin-container">
+            <p>You are logged in as a <strong>Lawyer (Admin)</strong>.</p>
+            <a href="{% url 'admin_dashboard' %}">Admin Dashboard</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
         {% else %}
+        <div class="user-container">
             <p>You are logged in as a user.</p>
+            <a href="{% url 'my_cases' %}">My Cases</a>
+            <a href="{% url 'submit_case' %}">Submit a New Case</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
         {% endif %}
-        <a href="{% url 'my_cases' %}">My Cases</a>
-        <a href="{% url 'submit_case' %}">Submit a New Case</a>
-        <a href="{% url 'logout' %}">Logout</a>
+        
     {% else %}
+    <div class="login-container">
         <p>You are not logged in.</p>
         <a href="{% url 'login' %}">Login</a>
         <a href="{% url 'register' %}">Register</a>
+    </div>  
     {% endif %}
     <h2>About LawConnect</h2>
     <p>LawConnect is a platform that connects users with legal professionals to help them with their legal cases. You can submit your cases, view your submitted cases, and manage your account.</p>
@@ -33,6 +45,8 @@
     </ul>
     <h2>Contact Us</h2>
     <p>If you have any questions or need assistance, please contact us at support@law   connect.com.</p>
+</div>
+    <br>
     <footer>
         <p>&copy; 2025 LawConnect.GA All rights reserved.</p>
     </footer>           

@@ -14,5 +14,5 @@ class CustomUserCreationForm(UserCreationForm):
 class CaseForm(forms.ModelForm):
     class Meta:
         model = Case
-        fields = ['title', 'description', 'category', 'status']
+        fields = ['title', 'description', 'category']
         

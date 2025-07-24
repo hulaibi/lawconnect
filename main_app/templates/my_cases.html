@@ -1,27 +1,45 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>My Case</title>
 </head>
 <body></body>
 
-    <h2>My Cases</h2>
+    <h2 class="container">My Cases</h2>
     
     {% if cases %}
+    <div class="case-list">
         <ul>
             {% for case in cases %}
-                <li>
-                    <strong>{{ case.title }}</strong> - {{ case.category }} - {{ case.status }}<br>
-                    <p>{{ case.description }}</p>
-                    <small>Submitted on: {{ case.created_at }}</small>
-                </li>
+            <li>
+                <strong>{{ case.title }}</strong> - {{ case.get_category_display }} - {{ case.get_status_display }}
+                <p>{{ case.description }}</p>
+                <small>submitted on: {{ case.created_at }}</small><br>
+
+                {% if case.get_status_display == 'Pending' %}
+                    <a href="{% url 'update_case' case.id %}">Update</a> |
+                    <a href="{% url 'delete_case' case.id %}">Delete</a>
+                {% endif %}
+            </li>
             {% endfor %}
         </ul>
     {% else %}
         <p>You have no cases submitted.</p>
     {% endif %}
+    <br>
+    <a href="{% url 'submit_case' %}">Submit a New Case</a>
+    <a href="{% url 'home' %}">Back to Home</a>
+    <a href="{% url 'logout' %}">Logout</a>
+    </div>
+    <footer>
+        <p>&copy; 2025 LawConnect.GA All rights reserved.</p>
+    </footer>
+</body>
+</html>
 
-    <a href="{% url 'submit_case' %}">Submit a New Case</a> | 
-    <a href="{% url 'home' %}">Back to Home</a>    
+                
+              

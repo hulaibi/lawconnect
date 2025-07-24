@@ -1,18 +1,23 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit Case</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Submit a New Case</title>
 </head>
 <body></body>
 
-    <h2>Submit a New Case</h2>
-    
+    <h2 class="container">Submit a New Case</h2>
+ <div class="form-container">
+        
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit Case</button>
     </form>
+ 
 
     <a href="{% url 'home' %}">Back to Home</a>
+</div>

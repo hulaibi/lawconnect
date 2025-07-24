@@ -18,11 +18,11 @@ class Case(models.Model):
     ]
 
     STATUS_CHOICES = [
-        ('Open', 'Open'),
-        ('Closed', 'Closed'),
-        ('Pending', 'Pending'),
-        ('Resolved', 'Resolved'),
-        ('In Progress', 'In Progress'),
+        ('pending', 'Pending'),
+        ('in_progress', 'In Progress'),
+        ('resolved', 'Resolved'),
+        ('closed', 'Closed'),
+        ('rejected', 'Rejected'),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cases')

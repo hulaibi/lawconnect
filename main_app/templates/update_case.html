@@ -5,22 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Register</title>
+    <title>Update Your Case</title>
 </head>
 <body>
-    <h2 class="container">Register</h2>
-<div class="form-container">
-    <form method="POST">
+    <h2>Update Your Case</h2>
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Register</button>
+        <button type="submit">Update Case</button>
     </form>
-  
-
-    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
     <br>
+    <a href="{% url 'my_cases' %}">Back to My Cases</a>
     <a href="{% url 'home' %}">Back to Home</a>
-</div>
     <footer>
         <p>&copy; 2025 LawConnect.GA All rights reserved.</p>
     </footer>

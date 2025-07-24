@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Lawyer Dashboard</title>
+</head>
+<body>
+    <h2 class="container">Admin Dashboard</h2>
+    
+    <p>Welcome, {{ request.user.username }}! Here are the submitted cases:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>User</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for case in cases %}
+            <tr>
+                <td>{{ case.title }}</td>
+                <td>{{ case.user.username }}</td>
+                <td>{{ case.category }}</td>
+                <td>{{ case.description }}</td>
+                <td>{{ case.status }}</td>
+                <td>{{ case.created_at }}</td>
+                <td>
+                    <form method="post" action="{% url 'change_case_status' case.id %}">
+                        {% csrf_token %}
+                        <select name="status">
+                            <option value="pending" {% if case.status == 'pending' %}selected{% endif %}>Pending</option>
+                            <option value="in_progress" {% if case.status == 'in_progress' %}selected{% endif %}>In Progress</option>
+                            <option value="resolved" {% if case.status == 'resolved' %}selected{% endif %}>Resolved</option>
+                            <option value="closed" {% if case.status == 'closed' %}selected{% endif %}>Closed</option>
+                            <option value="rejected" {% if case.status == 'rejected' %}selected{% endif %}>Rejected</option>
+                        </select>
+                        <button type="submit">Change Status</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a   href="{% url 'home' %}">Back to Home</a>
+    <a href="{% url 'logout' %}">Logout</a>
+    <footer>
+        <p>&copy; 2025 LawConnect.GA All rights reserved.</p>
+    </footer>
+</body>
+</html>
