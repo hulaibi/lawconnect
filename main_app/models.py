@@ -35,7 +35,7 @@ class Case(models.Model):
     def __str__(self):
         return f"{self.title} ({self.user.username})"
 
-class Massage(models.Model):
+class Message(models.Model):
     case = models.ForeignKey(Case, on_delete=models.CASCADE, related_name='messages')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()

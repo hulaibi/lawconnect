@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from .forms import CustomUserCreationForm , CaseForm
-from .models import Case
+from .forms import CustomUserCreationForm , CaseForm, MessageForm
+from .models import Case, Message
 from django.http import HttpResponseForbidden
 
 # Create your views here.
@@ -101,3 +101,25 @@ def change_case_status(request, case_id):
     
 def about_view(request):
     return render(request, 'about.html')    
+
+@login_required
+def chat_view(request, case_id):
+    case = get_object_or_404(Case, id=case_id)
+    
+    if request.user != case.user and not request.user.is_staff:
+        return HttpResponseForbidden("You do not have permission to view this case.")
+    
+    messages = case.messages.all()
+    form = MessageForm()
+
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            msg = form.save(commit=False)
+            msg.user = request.user
+            msg.case = case
+            msg.save()
+            return redirect('chat_view', case_id=case.id)
+        
+    return render(request, 'chat.html', {'case': case, 'messages': messages, 'form': form})
+           

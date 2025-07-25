@@ -37,17 +37,22 @@
     <div class="case-list">
         <ul>
             {% for case in cases %}
-            <li>
-                <strong>{{ case.title }}</strong> - {{ case.get_category_display }} - {{ case.get_status_display }}
-                <p>{{ case.description }}</p>
-                <small>submitted on: {{ case.created_at }}</small><br>
+    <li>
+        <strong>{{ case.title }}</strong> - {{ case.get_category_display }} - {{ case.get_status_display }}
+        <p>{{ case.description }}</p>
+        <small>submitted on: {{ case.created_at }}</small><br>
 
-                {% if case.get_status_display == 'Pending' %}
-                    <a href="{% url 'update_case' case.id %}">Update</a> |
-                    <a href="{% url 'delete_case' case.id %}">Delete</a>
-                {% endif %}
-            </li>
-            {% endfor %}
+        {% if case.status == 'pending' %}
+            <a href="{% url 'update_case' case.id %}">Update</a> |
+            <a href="{% url 'delete_case' case.id %}">Delete</a>
+        {% endif %}
+
+        {% if case.status == 'in_progress' %}
+            <a href="{% url 'chat' case.id %}" class="chat-link">Chat</a>
+        {% endif %}
+    </li>
+          {% endfor %}
+
         </ul>
     {% else %}
         <p>You have no cases submitted.</p>

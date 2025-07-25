@@ -13,4 +13,5 @@ urlpatterns = [
     path('update_case/<int:case_id>/', views.update_case, name='update_case'),
     path('delete_case/<int:case_id>/', views.delete_case, name='delete_case'),
     path('about/', views.about_view, name='about'),
+    path('chat/<int:case_id>/', views.chat_view, name='chat_view'),
 ]
