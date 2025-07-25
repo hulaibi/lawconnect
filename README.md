@@ -1,88 +1,93 @@
-# LawConnect 
+# ⚖ LawConnect
 
-**LawConnect** is a legal case management platform that connects users with lawyers. Users can submit cases, track their status, and engage in private chat communication when the case is accepted. Lawyers can review, accept, or reject cases through an intuitive dashboard.
+LawConnect is a case management platform that connects clients with legal professionals. Users can submit cases in different legal categories and communicate with lawyers through a secure messaging system.
 
 ---
 
 ##  Screenshots
 
-### Homepage
-![Homepage](static/screenshots/homepage.png)
-
-### My Cases
-![My Cases](static/screenshots/my_cases.png)
-
-### Admin Dashboard
-![Admin Dashboard](static/screenshots/admin_dashboard.png)
-
-### Chat Interface
-![Chat](static/screenshots/chat.png)
+| Submit Case | Chat System | Admin Dashboard |
+|-------------|-------------|-----------------|
+| ![Submit Case](screenshots/submit_case.png) | ![Chat](screenshots/chat.png) | ![Dashboard](screenshots/admin_dashboard.png) |
 
 ---
 
-##  ERD - Entity Relationship Diagram
+##  ERD (Entity Relationship Diagram)
 
-![ERD](static/screenshots/erd.png)
+![ERD](screenshots/erd.png)
 
 ---
 
 ##  Features
 
--  User Registration & Authentication
--  Case Submission by Users
--  Admin Dashboard for Lawyers
--  Accept / Reject Cases by Status
--  Case-specific Chat when case is **In Progress**
--  Responsive UI with dark modern theme
--  Permissions and Role-based Access (User / Lawyer)
+- User authentication (client and admin)
+- Submit, update, and delete cases
+- Admin dashboard to manage cases
+- Secure chat system per case
+- Responsive design with clean lawyer-style theme (dark, gray, royal black)
 
 ---
 
 ##  Tech Stack
 
-| Layer        | Technology             |
-|--------------|------------------------|
-| Frontend     | Django, HTML, CSS      |
-| Backend      | Django (Python)        |
-| Database     | PostgreSQL             |
-| Auth         | Django Authentication  |
+- **Backend**: Django + PostgreSQL
+- **Frontend**: HTML + CSS (custom dark theme)
+- **Auth**: Django built-in authentication
+- **Env**: Pipenv
 
 ---
 
-##  How to Run the Project Locally
+##  How to Run Locally (Using Pipenv)
 
-### 1. Clone the Repo
+1. **Clone the repo:**
 
-```bash
-git clone https://github.com/hulaibi/lawconnect.git
-cd lawconnect
+   ```bash
+   git clone https://github.com/your-username/lawconnect.git
+   cd lawconnect
+   ```
 
-```bash
-pipenv install
-Activate shell:
+2. **Install dependencies:**
 
-```bash
-pipenv shell
-Apply migrations:
+   ```bash
+   pipenv install
+   ```
 
-bash
-Copy
-Edit
-python manage.py migrate
-Create superuser (optional for admin dashboard):
+3. **Activate shell:**
 
-bash
-Copy
-Edit
-python manage.py createsuperuser
-Run the development server:
+   ```bash
+   pipenv shell
+   ```
 
-bash
-Copy
-Edit
-python manage.py runserver
-Access the app:
+4. **Apply migrations:**
 
-Go to http://localhost:8000
+   ```bash
+   python manage.py migrate
+   ```
 
+5. **Create superuser (optional for admin dashboard):**
 
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. **Run the development server:**
+
+   ```bash
+   python manage.py runserver
+   ```
+
+7. **Access the app:**
+
+   Go to [http://localhost:8000](http://localhost:8000)
+
+---
+
+## Author
+
+Hasan Hulaibi — [@hulaibi](https://github.com/hulaibi)
+
+---
+
+##  License
+
+This project is for educational/demo purposes at General Assembly Bootcamp.
