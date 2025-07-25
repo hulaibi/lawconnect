@@ -56,3 +56,39 @@
 ```bash
 git clone https://github.com/hulaibi/lawconnect.git
 cd lawconnect
+
+Install dependencies:
+
+bash
+Copy
+Edit
+pipenv install
+Activate shell:
+
+bash
+Copy
+Edit
+pipenv shell
+Apply migrations:
+
+bash
+Copy
+Edit
+python manage.py migrate
+Create superuser (optional for admin dashboard):
+
+bash
+Copy
+Edit
+python manage.py createsuperuser
+Run the development server:
+
+bash
+Copy
+Edit
+python manage.py runserver
+Access the app:
+
+Go to http://localhost:8000
+
+
