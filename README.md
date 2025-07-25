@@ -57,17 +57,11 @@
 git clone https://github.com/hulaibi/lawconnect.git
 cd lawconnect
 
-Install dependencies:
-
-bash
-Copy
-Edit
+```bash
 pipenv install
 Activate shell:
 
-bash
-Copy
-Edit
+```bash
 pipenv shell
 Apply migrations:
 
