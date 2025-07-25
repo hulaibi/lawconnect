@@ -42,7 +42,7 @@
             </form>
 
             {% if case.status == 'in_progress' %}
-                <a href="{% url 'chat' case.id %}" class="chat-link">Chat</a>
+                <a href="{% url 'chat_view' case.id %}" class="chat-link">Chat</a>
             {% endif %}
         </td>
     </tr>
