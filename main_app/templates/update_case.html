@@ -8,7 +8,9 @@
     <title>Update Your Case</title>
 </head>
 <body>
-    <h2>Update Your Case</h2>
+    <h2 class="container">Update Your Case</h2>
+    <div class="main-container">
+    <h3>Update the details of your case titled "{{ case.title }}".</h3> 
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -17,6 +19,8 @@
     <br>
     <a href="{% url 'my_cases' %}">Back to My Cases</a>
     <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+    <br>    
     <footer>
         <p>&copy; 2025 LawConnect.GA All rights reserved.</p>
     </footer>

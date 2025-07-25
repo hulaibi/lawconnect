@@ -267,3 +267,104 @@ input, select, textarea {
     text-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4, 0 0 30px #00bcd4;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Navbar Fixed & Style */
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #151314; /* داكن أنيق */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Container inside navbar */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo */
+.logo-icon {
+    display: flex;
+    align-items: center;
+    height: 20px; /* ارتفاع العنصر الرابط بالكامل */
+}
+
+.logo-icon {
+    height: 100%; /* اجعل الصورة تمتلئ ارتفاع الرابط فقط */
+    width: auto;
+    object-fit: contain;
+}
+
+
+/* Navbar links */
+.nav-right a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-right a:hover {
+    color: #9ed8e0;
+}
+
+/* To prevent content from hiding under navbar */
+body {
+    padding-top: 70px; /* مساوية لارتفاع الـ navbar */
+}
+
+
+@media (max-width: 768px) {
+    .main-container,
+    .form-container,
+    .admin-container,
+    .user-container,
+    .login-container,
+    .case-list {
+        padding: 15px;
+        margin: 20px auto;
+        width: 90%;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    th {
+        text-align: left;
+        background-color: transparent;
+        border: none;
+        padding-top: 10px;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #444;
+        position: relative;
+        padding-left: 50%;
+        margin-bottom: 10px;
+    }
+
+    td::before {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #bbb;
+        content: attr(data-label); /* We'll use this in the HTML */
+    }
+}

@@ -9,9 +9,10 @@
 </head>
 <body>
     <h2 class="container">Admin Dashboard</h2>
+ <div class="main-container">
     
-    <p>Welcome, {{ request.user.username }}! Here are the submitted cases:</p>
-
+    <h3>Welcome, {{ request.user.username | capfirst }}! Here are the submitted cases:</h3>
+ </div>
     <table>
         <thead>
             <tr>
@@ -26,11 +27,11 @@
         <tbody>
             {% for case in cases %}
             <tr>
-                <td>{{ case.title }}</td>
+                <td data-label="Title">{{ case.title }}</td>
                 <td>{{ case.user.username }}</td>
                 <td>{{ case.category }}</td>
                 <td>{{ case.description }}</td>
-                <td>{{ case.status }}</td>
+                <td data-label="Status">{{ case.status }}</td>
                 <td>{{ case.created_at }}</td>
                 <td>
                     <form method="post" action="{% url 'change_case_status' case.id %}">
@@ -53,6 +54,8 @@
     <br>
     <a   href="{% url 'home' %}">Back to Home</a>
     <a href="{% url 'logout' %}">Logout</a>
+
+    <br>
     <footer>
         <p>&copy; 2025 LawConnect.GA All rights reserved.</p>
     </footer>

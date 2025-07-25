@@ -9,6 +9,7 @@
 </head>
 <body>
     <h2 class="container">Delete Case</h2>
+    <div class="main-container">
     <p>Are you sure you want to delete the case titled "{{ case.title }}"?</p>
     <form method="post">
         {% csrf_token %}
@@ -17,6 +18,8 @@
     <br>
     <a href="{% url 'my_cases' %}">Back to My Cases</a>
     <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+    <br>    
     <footer>
         <p>&copy; 2025 LawConnect.GA All rights reserved.</p>
     </footer>
