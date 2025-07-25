@@ -12,4 +12,5 @@ urlpatterns = [
     path('change_status/<int:case_id>/', views.change_case_status, name='change_case_status'),
     path('update_case/<int:case_id>/', views.update_case, name='update_case'),
     path('delete_case/<int:case_id>/', views.delete_case, name='delete_case'),
+    path('about/', views.about_view, name='about'),
 ]

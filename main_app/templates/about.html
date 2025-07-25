@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Lawyer</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar fixed-navbar">
+    <div class="nav-right">
+        <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="LawConnect Logo" class="logo-icon">
+        </a>
+
+        <a href="{% url 'home' %}">Home</a>
+        {% if request.user.is_authenticated %}
+            {% if not request.user.is_staff %}
+                <a href="{% url 'my_cases' %}">My Cases</a>
+                <a href="{% url 'submit_case' %}">Submit Case</a>
+            {% else %}
+                <a href="{% url 'admin_dashboard' %}">Dashboard</a>
+            {% endif %}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+        <a href="{% url 'about' %}">About</a>
+    </div>
+</nav>
+
+    <div class="about-container">
+        <div class="about-text">
+            <h2>About the Lawyer</h2>
+            <p>Hello, I'm <strong>Mr. Hasan Al-Hulaibi</strong>, a dedicated lawyer committed to helping clients with various legal matters.</p>
+
+            <p>I specialize in areas such as:</p>
+            <ul>
+                <li>Family Law (Divorce, Custody, Inheritance)</li>
+                <li>Criminal Law</li>
+                <li>Commercial Disputes</li>
+                <li>Labor & Employment Cases</li>
+                <li>Real Estate and Civil Affairs</li>
+            </ul>
+
+            <p>Through <strong>LawConnect</strong>, I aim to make legal support more accessible to individuals in need, with a secure and direct communication system.</p>
+
+            <p>If you wish to submit a case, please <a href="{% url 'register' %}">Register</a> or <a href="{% url 'login' %}">Login</a> to get started.</p>
+
+            <a href="{% url 'home' %}">Back to Home</a>
+        </div>
+        <div class="about-image">
+            <img src="{% static 'images/lawyer.png' %}" alt="Lawyer Hasan" />
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LawConnect.GA. All rights reserved.</p>
+    </footer>
+</body>
+</html>

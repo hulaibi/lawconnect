@@ -8,6 +8,29 @@
     <title>Register</title>
 </head>
 <body>
+    <nav class="navbar fixed-navbar">
+    <div class="nav-right">
+        <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="LawConnect Logo" class="logo-icon">
+        </a>
+
+        <a href="{% url 'home' %}">Home</a>
+        {% if request.user.is_authenticated %}
+            {% if not request.user.is_staff %}
+                <a href="{% url 'my_cases' %}">My Cases</a>
+                <a href="{% url 'submit_case' %}">Submit Case</a>
+            {% else %}
+                <a href="{% url 'admin_dashboard' %}">Dashboard</a>
+            {% endif %}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+        <a href="{% url 'about' %}">About</a>
+    </div>
+</nav>
+
     <h2 class="container">Register</h2>
 <div class="form-container">
     <form method="POST">

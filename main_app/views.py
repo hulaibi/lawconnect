@@ -99,3 +99,5 @@ def change_case_status(request, case_id):
             case.save()
     return redirect('admin_dashboard')
     
+def about_view(request):
+    return render(request, 'about.html')    
