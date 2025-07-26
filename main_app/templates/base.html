@@ -6,26 +6,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <!-- Navbar داخل base.html -->
-<div class="navbar">
-    <div class="nav-left">
-        <a href="{% url 'home' %}" class="logo">LawConnect</a>
-    </div>
-    <div class="nav-right">
-        {% if request.user.is_authenticated %}
-            {% if request.user.is_staff %}
-                <a href="{% url 'admin_dashboard' %}">Dashboard</a>
-            {% else %}
-                <a href="{% url 'my_cases' %}">My Cases</a>
-                <a href="{% url 'submit_case' %}">Submit Case</a>
-            {% endif %}
-            <a href="{% url 'logout' %}">Logout</a>
-        {% else %}
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'register' %}">Register</a>
-        {% endif %}
-    </div>
-</div>
 
     <div class="main-container">
         {% block content %}{% endblock %}
