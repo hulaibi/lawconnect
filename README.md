@@ -6,12 +6,10 @@ LawConnect is a case management platform that connects clients with legal profes
 
 ##  Screenshots
 
-| Submit Case | Chat System | Admin Dashboard |
-|-------------|-------------|-----------------|
-| ![Home](<img width="892" height="585" alt="home" src="https://github.com/user-attachments/assets/05597e08-1c57-4fc9-976a-889a521cb626" />
-) | ![Submit case](<img width="882" height="840" alt="submetcase" src="https://github.com/user-attachments/assets/52473040-beab-4dd4-803e-48e665daf941" />
-) | ![Dashboard](<img width="1877" height="751" alt="addmen" src="https://github.com/user-attachments/assets/a13cf4a5-ee50-4c27-896f-f9768f3207a0" />
-) |
+![Home](<img width="892" height="585" alt="home" src="https://github.com/user-attachments/assets/05597e08-1c57-4fc9-976a-889a521cb626" />
+![Submit case](<img width="882" height="840" alt="submetcase" src="https://github.com/user-attachments/assets/52473040-beab-4dd4-803e-48e665daf941" />
+![Dashboard](<img width="1877" height="751" alt="addmen" src="https://github.com/user-attachments/assets/a13cf4a5-ee50-4c27-896f-f9768f3207a0" />
+
 
 ---
 
