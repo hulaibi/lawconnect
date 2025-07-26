@@ -15,8 +15,7 @@ LawConnect is a case management platform that connects clients with legal profes
 
 ##  ERD (Entity Relationship Diagram)
 
-![ERD](<img width="708" height="407" alt="Low Diagram drawio (2)" src="https://github.com/user-attachments/assets/7a791fe5-79e8-492f-acd1-e54df0792a3a" />
-)
+<img width="708" height="407" alt="Low Diagram drawio (2)" src="https://github.com/user-attachments/assets/7a791fe5-79e8-492f-acd1-e54df0792a3a" />
 
 ---
 
