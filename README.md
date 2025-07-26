@@ -1,4 +1,4 @@
-# ⚖ LawConnect
+<img width="1024" height="1024" alt="LawConnect" src="https://github.com/user-attachments/assets/5feb01b5-662a-4ccb-8362-bab43afb56f1" />
 
 LawConnect is a case management platform that connects clients with legal professionals. Users can submit cases in different legal categories and communicate with lawyers through a secure messaging system.
 
@@ -8,13 +8,17 @@ LawConnect is a case management platform that connects clients with legal profes
 
 | Submit Case | Chat System | Admin Dashboard |
 |-------------|-------------|-----------------|
-| ![Submit Case](screenshots/submit_case.png) | ![Chat](screenshots/chat.png) | ![Dashboard](screenshots/admin_dashboard.png) |
+| ![Home](<img width="892" height="585" alt="home" src="https://github.com/user-attachments/assets/05597e08-1c57-4fc9-976a-889a521cb626" />
+) | ![Submit case](<img width="882" height="840" alt="submetcase" src="https://github.com/user-attachments/assets/52473040-beab-4dd4-803e-48e665daf941" />
+) | ![Dashboard](<img width="1877" height="751" alt="addmen" src="https://github.com/user-attachments/assets/a13cf4a5-ee50-4c27-896f-f9768f3207a0" />
+) |
 
 ---
 
 ##  ERD (Entity Relationship Diagram)
 
-![ERD](screenshots/erd.png)
+![ERD](<img width="708" height="407" alt="Low Diagram drawio (2)" src="https://github.com/user-attachments/assets/8ebd5392-f2dc-49ad-988e-dcb2e941f48a" />
+)
 
 ---
 
