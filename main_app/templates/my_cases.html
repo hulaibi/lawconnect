@@ -42,7 +42,7 @@
         <p>{{ case.description }}</p>
         <small>submitted on: {{ case.created_at }}</small><br>
 
-        {% if case.status == 'pending' %}
+        {% if case.get_status_display == 'Pending' %}
             <a href="{% url 'update_case' case.id %}">Update</a> |
             <a href="{% url 'delete_case' case.id %}">Delete</a>
         {% endif %}
