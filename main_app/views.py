@@ -77,7 +77,7 @@ def update_case(request, case_id):
 def delete_case(request, case_id):
     case = get_object_or_404(Case, id=case_id, user=request.user)
     
-    if case.status != 'Pending':
+    if case.status != 'pending':
         return HttpResponseForbidden("You cannot delete this case.")
     if request.method == 'POST':
         case.delete()
