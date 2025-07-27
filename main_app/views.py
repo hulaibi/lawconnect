@@ -61,7 +61,7 @@ def my_cases_view(request):
 def update_case(request, case_id):
     case = get_object_or_404(Case, id=case_id, user=request.user)
     
-    if case.status != 'Pending':
+    if case.status != 'pending':
         return HttpResponseForbidden("You cannot update this case.")
     
     if request.method == 'POST':
