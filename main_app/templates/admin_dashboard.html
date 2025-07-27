@@ -28,9 +28,9 @@
            {% for case in cases %}
     <tr>
         <td>{{ case.title }}</td>
-        <td>{{ case.get_category_display }}</td>
         <td>{{ case.user.username }}</td>
-        <td>{{ case.get_status_display }}</td>
+        <td>{{ case.get_category_display }}</td>
+        <td>{{ case.description }}</td>
         <td>
             <form method="post" action="{% url 'change_case_status' case.id %}">
                 {% csrf_token %}
@@ -45,6 +45,7 @@
                 <a href="{% url 'chat_view' case.id %}" class="chat-link">Chat</a>
             {% endif %}
         </td>
+        <td>{{ case.created_at }}</td>
     </tr>
              {% endfor %}
 
