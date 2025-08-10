@@ -92,3 +92,19 @@ Hasan Hulaibi — [@hulaibi](https://github.com/hulaibi)
 ##  License
 
 This project is for educational/demo purposes at General Assembly Bootcamp.
+
+
+## Next Steps: Planned Future Enhancements (Stretch Goals)
+Real-time Chat: Implement WebSockets (Django Channels) for instant messaging between clients and lawyers.
+
+File Sharing: Allow secure upload and download of legal documents within each case.
+
+Search & Filter: Advanced filtering and keyword search for cases in the admin dashboard.
+
+Case Status Tracking: Visual progress indicators for each case stage (e.g., Submitted → In Review → Closed).
+
+Notifications System: Email and in-app alerts for new messages, case updates, and deadlines.
+
+Multi-language Support: Enable multiple languages to serve a broader audience.
+
+Mobile-Friendly Enhancements: Optimize the UI for mobile-first usage.
